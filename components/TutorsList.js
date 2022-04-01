@@ -9,7 +9,6 @@ function TutorsList() {
       {Array.from(Array(15), (_, index) => index + 1).map((index) => (
         <Link href={'/tutors'} passHref key={index}>
           <CourseCart
-            href={'/tutors'}
             topRightTitle={'top tutors'}
             coverImg="/Images/CourseCart/girl-using-tablet.png"
             tutorName={'Radhakishan J.'}

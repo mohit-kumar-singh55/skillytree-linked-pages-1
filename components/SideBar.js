@@ -10,7 +10,7 @@ import {
   RevenueIcon,
   ReviewIcon,
   SessionIcon,
-  
+
   SettingIcon,
 } from '../icons'
 function SideBar() {
@@ -83,12 +83,11 @@ export function SideBarLinks({ links, hideIcon = false }) {
     <nav className='w-full'>
       <ul className=''>
         {links.map((item, i) => (
-          <li
-            className={`align-center mb-5 block justify-center text-left font-roboto text-lg  font-bold ${
-              item.active
+          <li key={i}
+            className={`align-center mb-5 block justify-center text-left font-roboto text-lg  font-bold ${item.active
                 ? 'rounded-2xl bg-pink px-4 py-3 2xl:px-9 xl:px-5'
                 : 'px-4 py-3 2xl:px-9 xl:px-5'
-            } font-roboto`}
+              } font-roboto`}
           >
             <Link href={item.link}>
               <a className={`flex ${item.active ? 'text-white' : null}`}>
