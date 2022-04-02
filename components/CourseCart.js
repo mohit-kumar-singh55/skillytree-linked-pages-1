@@ -44,7 +44,7 @@ function CourseCart({
           {topRightTitle}
         </div>
         <div className='absolute top-[10px] right-[18px]'>
-          <div className="relative w-[14px] h-[18px]">
+          <div className="relative w-[14px] h-[18px] cursor-pointer">
             <Image
               src="/Images/CourseCart/Bookmark.png"
               layout='fill'
