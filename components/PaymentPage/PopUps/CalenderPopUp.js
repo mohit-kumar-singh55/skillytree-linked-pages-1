@@ -173,7 +173,7 @@ const CalenderPopUp = ({ setOpenPopUp, setTotalSelectedTimes, link }) => {
                 </div>
 
                 {/* bottom */}
-                <BottomButton selectedTimes={selectedTimes} link={link} />
+                <BottomButton selectedTimes={selectedTimes} link={link} setOpenPopUp={setOpenPopUp} />
             </div>
         </div >
     )
@@ -196,7 +196,7 @@ const TopHeader = ({ setOpenPopUp }) => {
 
 
 // Bottom Button and Sessions selected
-const BottomButton = ({ selectedTimes, link }) => {
+const BottomButton = ({ selectedTimes, link, setOpenPopUp }) => {
     return (
         <div className='flex items-center justify-between gap-4 w-full px-3 bottom-0'>
             {/* Left */}
@@ -209,7 +209,7 @@ const BottomButton = ({ selectedTimes, link }) => {
             </div>
 
             {/* Right */}
-            <PopUpButton label="Proceed" link={link} />
+            <PopUpButton label="Proceed" link={link} setOpenPopUp={setOpenPopUp} />
         </div>
     )
 }
