@@ -1,12 +1,12 @@
-import React from 'react';
-import PaymentCheckOutContainer from "../../components/PaymentPage/PaymentCheckOutContainer";
+import React from 'react'
+import PaymentCheckOutContainer from '../../components/PaymentPage/PaymentCheckOutContainer'
 
 const Payment = () => {
-    return (
-        <div>
-            <PaymentCheckOutContainer />
-        </div>
-    )
+  return (
+    <div>
+      <PaymentCheckOutContainer />
+    </div>
+  )
 }
 
-export default Payment;
+export default Payment

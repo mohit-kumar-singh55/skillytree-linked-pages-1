@@ -1,6 +1,6 @@
-import moment from 'moment';
-import { useEffect, useState } from 'react';
-import { getLocalStorage } from '../../utils/cookies';
+import moment from 'moment'
+import { useEffect, useState } from 'react'
+import { getLocalStorage } from '../../utils/cookies'
 
 function Resume() {
   const [user_data, set_user_data] = useState(null)
@@ -16,17 +16,12 @@ function Resume() {
 
   return (
     <div className="  font-poppins md:bg-white">
-      {
-        user_data
-          ?
-          <>
-            <Mobile user_data={user_data} />
-            <Desktop user_data={user_data} />
-          </>
-          :
-          null
-      }
-
+      {user_data ? (
+        <>
+          <Mobile user_data={user_data} />
+          <Desktop user_data={user_data} />
+        </>
+      ) : null}
     </div>
   )
 }
@@ -45,22 +40,14 @@ function Mobile({ user_data }) {
         onChange={() => setEducation(!education)}
         className="mt-6 w-full rounded-lg border-2 bg-white py-2 px-4 text-sm text-[#9A9A9A] outline-none"
       >
-        <option value="education">
-          Education
-        </option>
-        <option value="Certification">
-          Certification
-        </option>
+        <option value="education">Education</option>
+        <option value="Certification">Certification</option>
       </select>
-      {
-        education
-          ? <Education user_data={user_data} />
-          : <Certifications user_data={user_data} />
-
-
-      }
-
-
+      {education ? (
+        <Education user_data={user_data} />
+      ) : (
+        <Certifications user_data={user_data} />
+      )}
     </div>
   )
 }
@@ -88,26 +75,30 @@ function Desktop({ user_data }) {
       <section className="flex justify-center gap-4   ">
         <div className="mr-16 mt-4 space-y-10 font-medium capitalize text-[#5F5F5F] ">
           <div className="text-2xl ">Duration</div>
-          {
-            education
-              ?
-              user_data.education_certificates && user_data.education_certificates.map(function (dd) {
+          {education
+            ? user_data.education_certificates &&
+              user_data.education_certificates.map(function (dd) {
                 return (
                   <>
-                    <div className="text-lg">{moment(dd.year_of_study.from).format("YYYY")} - {moment(dd.year_of_study.to).format("YYYY")}</div>
+                    <div className="text-lg">
+                      {moment(dd.year_of_study.from).format('YYYY')} -{' '}
+                      {moment(dd.year_of_study.to).format('YYYY')}
+                    </div>
                     <div className="text-lg">{dd.university}</div>
                   </>
                 )
               })
-              : user_data.teaching_certificates.map(function (dd) {
+            : user_data.teaching_certificates.map(function (dd) {
                 return (
                   <>
-                    <div className="text-lg">{moment(dd.year_of_study.from).format("YYYY")} - {moment(dd.year_of_study.to).format("YYYY")}</div>
+                    <div className="text-lg">
+                      {moment(dd.year_of_study.from).format('YYYY')} -{' '}
+                      {moment(dd.year_of_study.to).format('YYYY')}
+                    </div>
                     <div className="text-lg">{dd.certificate_title}</div>
                   </>
                 )
-              })
-          }
+              })}
         </div>
         <div className="h-56 w-[1px] rounded-full bg-[#DADADA] " />
         <div className="ml-20 w-96 space-y-10">
@@ -125,22 +116,22 @@ function Desktop({ user_data }) {
               Certifications
             </span>
           </div>
-          {education ?
-            user_data.education_certificates && user_data.education_certificates.map(function (dd) {
-              return (
-                <div className="text-lg text-[#787878] ">
-                  {dd.university}, {dd.degree}, {dd.specialization}
-                </div>
-              )
-            }) : (
-              user_data.teaching_certificates.map(function (dd) {
+          {education
+            ? user_data.education_certificates &&
+              user_data.education_certificates.map(function (dd) {
+                return (
+                  <div className="text-lg text-[#787878] ">
+                    {dd.university}, {dd.degree}, {dd.specialization}
+                  </div>
+                )
+              })
+            : user_data.teaching_certificates.map(function (dd) {
                 return (
                   <div className="text-lg text-[#787878] ">
                     {dd.certificate_title}, {dd.description}, {dd.issued_by}
                   </div>
                 )
-              })
-            )}
+              })}
         </div>
       </section>
     </div>
@@ -161,20 +152,21 @@ function Education({ user_data }) {
     <div className=" my-4  w-80 space-y-4 px-4 font-poppins text-sm font-medium  capitalize ">
       <h2 className="text-[#251f1f]">Education</h2>
       <section className="space-y-2">
-        {
-          user_data.education_certificates && user_data.education_certificates.map(function (dd) {
+        {user_data.education_certificates &&
+          user_data.education_certificates.map(function (dd) {
             return (
               <>
-                <h2 className=" text-[#5F5F5F]">{moment(dd.year_of_study.from).format("YYYY")} - {moment(dd.year_of_study.to).format("YYYY")}</h2>
+                <h2 className=" text-[#5F5F5F]">
+                  {moment(dd.year_of_study.from).format('YYYY')} -{' '}
+                  {moment(dd.year_of_study.to).format('YYYY')}
+                </h2>
                 <p className="text-[#787878]">
                   {dd.university}, {dd.degree}, {dd.specialization}
                 </p>
                 <hr />
               </>
             )
-          })
-        }
-
+          })}
       </section>
       {/* <hr />
       <section className="space-y-2">
@@ -193,19 +185,20 @@ function Certifications({ user_data }) {
       <h2 className="text-[#251f1f]">Certifications</h2>
 
       <section className="space-y-2">
-        {
-          user_data.teaching_certificates.map(function (dd) {
-            return (
-              <>
-                <h2 className=" text-[#5F5F5F]">{moment(dd.year_of_study.from).format("YYYY")} - {moment(dd.year_of_study.to).format("YYYY")}</h2>
-                <p className="text-[#787878]">
-                  {dd.certificate_title}, {dd.description}, {dd.issued_by}
-                </p>
-                <hr />
-              </>
-            )
-          })
-        }
+        {user_data.teaching_certificates.map(function (dd) {
+          return (
+            <>
+              <h2 className=" text-[#5F5F5F]">
+                {moment(dd.year_of_study.from).format('YYYY')} -{' '}
+                {moment(dd.year_of_study.to).format('YYYY')}
+              </h2>
+              <p className="text-[#787878]">
+                {dd.certificate_title}, {dd.description}, {dd.issued_by}
+              </p>
+              <hr />
+            </>
+          )
+        })}
       </section>
       {/* <hr />
       <section className="space-y-2">

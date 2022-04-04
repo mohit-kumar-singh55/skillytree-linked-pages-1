@@ -20,7 +20,7 @@ function About() {
   }
 
   const handleSubmit = async (data) => {
-    data.background_pic = background_img;
+    data.background_pic = background_img
     const user_update = await Server.put(updateUserAbout, data)
     if (user_update.success) {
       updateUser({ ...data }, () => {
@@ -57,19 +57,19 @@ function About() {
         initialValues={
           user_data
             ? {
-              name: user_data.name,
-              email: user_data.email,
-              language_spoken: user_data.language_spoken,
-              country: user_data.country,
-              subject_taught_id: user_data.subject_taught_id,
-              hourly_rate: user_data.hourly_rate,
-              teaching_experience_id: user_data.teaching_experience_id,
-              current_situation_id: user_data.current_situation_id,
-              country_code: user_data.country_code,
-              number: user_data.number,
-              eighteen_plus: user_data.eighteen_plus,
-              background_pic_title: user_data.background_pic_title,
-            }
+                name: user_data.name,
+                email: user_data.email,
+                language_spoken: user_data.language_spoken,
+                country: user_data.country,
+                subject_taught_id: user_data.subject_taught_id,
+                hourly_rate: user_data.hourly_rate,
+                teaching_experience_id: user_data.teaching_experience_id,
+                current_situation_id: user_data.current_situation_id,
+                country_code: user_data.country_code,
+                number: user_data.number,
+                eighteen_plus: user_data.eighteen_plus,
+                background_pic_title: user_data.background_pic_title,
+              }
             : {}
         }
         onSubmit={async (values) => {
@@ -197,7 +197,7 @@ const LanguageAndLevel = ({ values }) => {
                             name={`language_spoken.${index}.language_id`}
                             className="cursor-pointer rounded-lg border-2 bg-white py-3 px-2 font-roboto text-[#9E9E9E] outline-none md:w-96 "
                           >
-                            <option value={""}>Select </option>
+                            <option value={''}>Select </option>
                             <option value={1}>English </option>
                             <option value={2}>Hindi </option>
                             <option value={3}>Marathi </option>
@@ -216,23 +216,41 @@ const LanguageAndLevel = ({ values }) => {
                             name={`language_spoken.${index}.language_level_id`}
                             className="cursor-pointer rounded-lg border-2 bg-white py-3 px-2 font-roboto text-[#9E9E9E] outline-none md:w-96 "
                           >
-                            <option value={""}>Select</option>
-                            <option value={1}>Native / Bilingual Proficiency</option>
-                            <option value={2}>Limited Working Proficiency</option>
-                            <option value={3}>Full Professional Proficiency</option>
+                            <option value={''}>Select</option>
+                            <option value={1}>
+                              Native / Bilingual Proficiency
+                            </option>
+                            <option value={2}>
+                              Limited Working Proficiency
+                            </option>
+                            <option value={3}>
+                              Full Professional Proficiency
+                            </option>
                           </Field>
                         </div>
-                        {
-                          index
-                            ?
-                            <a className="" href="/" onClick={(e) => { e.preventDefault(); arrayHelpers.remove(index) }} >
-                              -
-                            </a>
-                            :
-                            <a className="" href="/" onClick={(e) => { e.preventDefault(); arrayHelpers.insert(index, '') }} >
-                              +
-                            </a>
-                        }
+                        {index ? (
+                          <a
+                            className=""
+                            href="/"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              arrayHelpers.remove(index)
+                            }}
+                          >
+                            -
+                          </a>
+                        ) : (
+                          <a
+                            className=""
+                            href="/"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              arrayHelpers.insert(index, '')
+                            }}
+                          >
+                            +
+                          </a>
+                        )}
                       </div>
                     </>
                   )
@@ -317,7 +335,9 @@ const TeachingExperienceDesc = () => (
       className=" cursor-pointer rounded-lg border-2 bg-white py-3 px-2 font-roboto capitalize text-[#9E9E9E] outline-none md:w-96 "
     >
       <option>Select</option>
-      <option value="1" defaultChecked>i have tought in an informal setting </option>
+      <option value="1" defaultChecked>
+        i have tought in an informal setting{' '}
+      </option>
       <option value="2">
         Qualified TEFL Tutor And Accent Coach With Experience!
       </option>

@@ -81,10 +81,7 @@ function PopUpWindow({ setReview, review }) {
         review ? 'flex' : 'hidden'
       }    bgColor h-full w-full items-center justify-center`}
     >
-      <div
-       
-        className="  mt-20 w-[591px] rounded-xl bg-white px-6 py-4  font-poppins capitalize  opacity-100 shadow-md "
-      >
+      <div className="  mt-20 w-[591px] rounded-xl bg-white px-6 py-4  font-poppins capitalize  opacity-100 shadow-md ">
         <h1 className=" text-lg font-semibold text-[#787878] ">review</h1>
         <section className="mb-4  mt-4 flex justify-between ">
           <div className=" flex gap-2">
@@ -173,4 +170,3 @@ function StudentReviews() {
     </section>
   )
 }
-

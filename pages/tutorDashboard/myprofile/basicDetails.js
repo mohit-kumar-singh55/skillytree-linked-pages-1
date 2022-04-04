@@ -93,7 +93,10 @@ function basicDetails() {
                       <label className="self-center font-semibold">
                         I Natively Speak
                       </label>
-                      <Field as="select" className="rounded-[10px]  border-2 border-[#C1C1C1] p-2">
+                      <Field
+                        as="select"
+                        className="rounded-[10px]  border-2 border-[#C1C1C1] p-2"
+                      >
                         <option>Hindi</option>
                         <option>Hindi</option>
                         <option>Hindi</option>
@@ -105,7 +108,10 @@ function basicDetails() {
                       <label className="self-center font-semibold">
                         My English Fluency
                       </label>
-                      <Field as="select" className="rounded-[10px]  border-2 border-[#C1C1C1] p-2">
+                      <Field
+                        as="select"
+                        className="rounded-[10px]  border-2 border-[#C1C1C1] p-2"
+                      >
                         <option>Expert</option>
                         <option>Expert</option>
                         <option>Expert</option>
@@ -204,7 +210,7 @@ function basicDetails() {
                                     <option>514 INR</option>
                                     <option>651 INR</option>
                                   </Field> */}
-                                  <div className="relative mt-1 rounded-[10px] shadow-sm h-full border-2 border-[#C1C1C1] p-2">
+                                  <div className="relative mt-1 h-full rounded-[10px] border-2 border-[#C1C1C1] p-2 shadow-sm">
                                     <Field
                                       type="text"
                                       name={`teachs.${index}.fee`}
@@ -232,7 +238,7 @@ function basicDetails() {
                                   </div>
                                 </div>
 
-                                <div className=" col-span-3 col-start-10 flex justify-between xl:gap-8 lg:gap-3 md:col-span-1 ">
+                                <div className=" col-span-3 col-start-10 flex justify-between md:col-span-1 lg:gap-3 xl:gap-8 ">
                                   <button
                                     type="button"
                                     onClick={() => push({ fee: '', teach: '' })}
@@ -241,7 +247,9 @@ function basicDetails() {
                                   </button>
                                   <button
                                     type="button"
-                                    onClick={index<=0? null :() => remove(index)}
+                                    onClick={
+                                      index <= 0 ? null : () => remove(index)
+                                    }
                                   >
                                     <RiDeleteBinLine className="text-xl text-[#7D7D7D]" />
                                   </button>

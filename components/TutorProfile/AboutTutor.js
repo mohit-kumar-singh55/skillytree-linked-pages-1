@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import SkillRange from './SkillRange'
 import { useRecoilState } from 'recoil'
-import { SkillRanges, SkillRanges2, SkillRanges3, SkillRanges4 } from '../store';
+import { SkillRanges, SkillRanges2, SkillRanges3, SkillRanges4 } from '../store'
 import { getLocalStorage } from '../../utils/cookies'
 
 function AboutTutor() {
@@ -56,9 +56,18 @@ function AboutTutor() {
           </h1>
           <SmallLine />
         </div>
-        <Slide1 css={slides.slide1 ? 'block' : 'hidden'} user_data={user_data} />
-        <Slide2 css={slides.slide2 ? 'block' : 'hidden'} user_data={user_data} />
-        <Slide3 css={slides.slide3 ? 'block' : 'hidden'} user_data={user_data} />
+        <Slide1
+          css={slides.slide1 ? 'block' : 'hidden'}
+          user_data={user_data}
+        />
+        <Slide2
+          css={slides.slide2 ? 'block' : 'hidden'}
+          user_data={user_data}
+        />
+        <Slide3
+          css={slides.slide3 ? 'block' : 'hidden'}
+          user_data={user_data}
+        />
         <SliderBtn />
       </div>
     )
@@ -68,18 +77,21 @@ function AboutTutor() {
     return (
       <div className="absolute   -bottom-2 flex     w-full justify-center   gap-[1rem] md:bottom-4 ">
         <div
-          className={`${slides.slide1 ? 'bg-[#FC4D6D]' : 'bg-white'
-            } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer`}
+          className={`${
+            slides.slide1 ? 'bg-[#FC4D6D]' : 'bg-white'
+          } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer`}
           onClick={toggleSlides1}
         />
         <div
-          className={`${slides.slide2 ? 'bg-[#FC4D6D]' : 'bg-white'
-            } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer `}
+          className={`${
+            slides.slide2 ? 'bg-[#FC4D6D]' : 'bg-white'
+          } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer `}
           onClick={toggleSlides2}
         />
         <div
-          className={`${slides.slide3 ? 'bg-[#FC4D6D]' : 'bg-white'
-            } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer `}
+          className={`${
+            slides.slide3 ? 'bg-[#FC4D6D]' : 'bg-white'
+          } h-[10px] w-[10px] overflow-hidden rounded-full ring-2 ring-[#FC4D6D] hover:cursor-pointer `}
           onClick={toggleSlides3}
         />
       </div>
@@ -215,9 +227,7 @@ function Slide2({ css, user_data }) {
           <div className="tracking-0.05em font mb-[13px] text-[20px] font-[600]">
             Background
           </div>
-          <p className="slide-para-style">
-            {user_data.introduction}
-          </p>
+          <p className="slide-para-style">{user_data.introduction}</p>
         </div>
       </div>
     </div>
@@ -235,15 +245,21 @@ function Slide3({ css, user_data }) {
         <div className="flex flex-col gap-[1.5rem] font-[500] text-[#6C6C6C] ">
           <div className="">
             <span>Rate for online classes :</span>&nbsp;
-            <span className="font-bold text-[#FC4D6D]">${user_data.hourly_rate}/hr</span>
+            <span className="font-bold text-[#FC4D6D]">
+              ${user_data.hourly_rate}/hr
+            </span>
           </div>
           <div>
             <span> Rate for 5 hours of classes :</span>&nbsp;
-            <span className="font-bold text-[#FC4D6D]">${(user_data.hourly_rate * 5) - user_data.hourly_rate}</span>
+            <span className="font-bold text-[#FC4D6D]">
+              ${user_data.hourly_rate * 5 - user_data.hourly_rate}
+            </span>
           </div>
           <div>
             <span> Rate for 10 hours of classes :</span>&nbsp;
-            <span className="font-bold text-[#FC4D6D]">${(user_data.hourly_rate * 10) - user_data.hourly_rate}</span>
+            <span className="font-bold text-[#FC4D6D]">
+              ${user_data.hourly_rate * 10 - user_data.hourly_rate}
+            </span>
           </div>
         </div>
       </div>

@@ -10,7 +10,6 @@ import {
   RevenueIcon,
   ReviewIcon,
   SessionIcon,
-
   SettingIcon,
 } from '../icons'
 function SideBar() {
@@ -67,7 +66,7 @@ function SideBar() {
     },
   ]
   return (
-    <div className=" xl:w-96 lg:w-[350px] hidden rounded-r-lg bg-white lg:block px-2 ">
+    <div className=" hidden rounded-r-lg bg-white px-2 lg:block lg:w-[350px] xl:w-96 ">
       <span className="block bg-gradient-to-r from-[#feae78] to-[#f94161] bg-clip-text pb-12 pt-2 text-2xl font-bold tracking-widest text-transparent">
         Dashboard
       </span>
@@ -80,14 +79,16 @@ export default SideBar
 
 export function SideBarLinks({ links, hideIcon = false }) {
   return (
-    <nav className='w-full'>
-      <ul className=''>
+    <nav className="w-full">
+      <ul className="">
         {links.map((item, i) => (
-          <li key={i}
-            className={`align-center mb-5 block justify-center text-left font-roboto text-lg  font-bold ${item.active
-                ? 'rounded-2xl bg-pink px-4 py-3 2xl:px-9 xl:px-5'
-                : 'px-4 py-3 2xl:px-9 xl:px-5'
-              } font-roboto`}
+          <li
+            key={i}
+            className={`align-center mb-5 block justify-center text-left font-roboto text-lg  font-bold ${
+              item.active
+                ? 'rounded-2xl bg-pink px-4 py-3 xl:px-5 2xl:px-9'
+                : 'px-4 py-3 xl:px-5 2xl:px-9'
+            } font-roboto`}
           >
             <Link href={item.link}>
               <a className={`flex ${item.active ? 'text-white' : null}`}>

@@ -1,9 +1,6 @@
-import MyReview from "../../components/MyReview"
+import MyReview from '../../components/MyReview'
 function MyReviews() {
-    return (
-      <MyReview/>
-    )
-  }
-  
-  export default MyReviews
-  
+  return <MyReview />
+}
+
+export default MyReviews

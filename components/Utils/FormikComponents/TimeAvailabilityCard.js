@@ -9,58 +9,57 @@ import { RiAddFill, RiDeleteBinLine } from 'react-icons/ri'
 import Image from 'next/image'
 
 function TimeAvailabilityCard({ weekName, name, formik }) {
-
   const [indexValue, setIndexValue] = useState(0)
 
   const timeHandler = (value) => {
     console.log('time', value)
 
     if (
-      value === '7:00 AM' ||  value ===
-      '7:30 AM' ||  value ===
-      '8:00 AM' ||  value ===
-      '9:00 AM' ||  value ===
-      '8:30 AM' ||  value ===
-      '9:30 AM' || value ===
-      '10:00 AM' || value ===
-      '10:30 AM' || value ===
-      '11:00 AM' || value ===
-      '11:30 AM' || value ===
-      '5:00 AM' || value ===
-      '5:30 AM' || value ===
-      '6:00 AM' || value ===
-      '6:30 AM'
+      value === '7:00 AM' ||
+      value === '7:30 AM' ||
+      value === '8:00 AM' ||
+      value === '9:00 AM' ||
+      value === '8:30 AM' ||
+      value === '9:30 AM' ||
+      value === '10:00 AM' ||
+      value === '10:30 AM' ||
+      value === '11:00 AM' ||
+      value === '11:30 AM' ||
+      value === '5:00 AM' ||
+      value === '5:30 AM' ||
+      value === '6:00 AM' ||
+      value === '6:30 AM'
     ) {
       console.log('morning')
       setIndexValue(0)
     } else if (
-      value === '12:00 PM' ||value ===
-      '12:30 PM' ||value ===
-      '1:00 PM' ||value ===
-      '1:30 PM' ||value ===
-      '2:30 PM' ||value ===
-      '3:30 PM' ||value ===
-      '3:00 PM' ||value ===
-      '2:00 PM' ||value ===
-      '4:00 PM' ||value ===
-      '4:30 PM'
+      value === '12:00 PM' ||
+      value === '12:30 PM' ||
+      value === '1:00 PM' ||
+      value === '1:30 PM' ||
+      value === '2:30 PM' ||
+      value === '3:30 PM' ||
+      value === '3:00 PM' ||
+      value === '2:00 PM' ||
+      value === '4:00 PM' ||
+      value === '4:30 PM'
     ) {
       console.log('afternoon')
 
       setIndexValue(1)
     } else if (
-      value === '5:00 PM' ||value ===
-      '5:30 PM' ||value ===
-      '6:00 PM' ||value ===
-      '6:30 PM' ||value ===
-      '7:30 PM' ||value ===
-      '8:30 PM' ||value ===
-      '7:00 PM' ||value ===
-      '8:00 PM' ||value ===
-      '9:00 PM' ||value ===
-      '9:30 PM' ||value ===
-      '10:30 PM' ||value ===
-      '10:00 PM'
+      value === '5:00 PM' ||
+      value === '5:30 PM' ||
+      value === '6:00 PM' ||
+      value === '6:30 PM' ||
+      value === '7:30 PM' ||
+      value === '8:30 PM' ||
+      value === '7:00 PM' ||
+      value === '8:00 PM' ||
+      value === '9:00 PM' ||
+      value === '9:30 PM' ||
+      value === '10:30 PM' ||
+      value === '10:00 PM'
     ) {
       console.log('evening')
 
@@ -110,27 +109,27 @@ function TimeAvailabilityCard({ weekName, name, formik }) {
         {/* </div> */}
 
         <FieldArray name={name} className="col-span-2">
-          {({ push, handleRemove,form }) => {
+          {({ push, handleRemove, form }) => {
             const cardName = form.values[name]
             console.log('cardName', cardName)
-          
+
             return (
               <>
-                {cardName.map((item, index ) => (
-                  <div className='md:col-span-1 col-span-2' key={index}>
+                {cardName.map((item, index) => (
+                  <div className="col-span-2 md:col-span-1" key={index}>
                     {indexValue === 0 ? (
                       <WiDayHaze className="text-3xl text-[#7D7D7D]" />
                     ) : indexValue === 1 ? (
                       <BsSun className="mb-1 text-2xl text-[#7D7D7D]" />
                     ) : indexValue === 2 ? (
                       <BsCloudMoon className="mb-1 text-2xl text-[#7D7D7D]" />
-                    ) : 
-                      indexValue ===3 ? (
-                        <div className="h-7 w-7">
-                          <Image src={nightIcon} alt="" />
-                        </div>
-                      ) :  <WiDayHaze className="text-3xl text-[#7D7D7D]" />
-                    }
+                    ) : indexValue === 3 ? (
+                      <div className="h-7 w-7">
+                        <Image src={nightIcon} alt="" />
+                      </div>
+                    ) : (
+                      <WiDayHaze className="text-3xl text-[#7D7D7D]" />
+                    )}
 
                     <div className="flex gap-4 ">
                       <div className=" w-full">
@@ -181,7 +180,10 @@ function TimeAvailabilityCard({ weekName, name, formik }) {
                       <button type="button">
                         <RiDeleteBinLine
                           className="text-xl"
-                          onClick={() => { console.log('index', index); handleRemove(index)}}
+                          onClick={() => {
+                            console.log('index', index)
+                            handleRemove(index)
+                          }}
                         />
                       </button>
                     </div>

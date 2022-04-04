@@ -43,9 +43,11 @@ function timeAvailability() {
       },
     ],
   }
-  const onSubmit = (value) => { console.log('value', value)}
+  const onSubmit = (value) => {
+    console.log('value', value)
+  }
   return (
-    <div className='bg-white lg:ml-[30px] ml-[1px] lg:mt-[34px] md-[1px]  lg:mb-[30px] mb-[1px] lg:rounded-2xl'>
+    <div className="md-[1px] ml-[1px] mb-[1px] bg-white lg:ml-[30px]  lg:mt-[34px] lg:mb-[30px] lg:rounded-2xl">
       <div className=" p-5  xl:px-20">
         <h1 className="text-3xl font-semibold">Time Availability</h1>
       </div>
@@ -100,36 +102,31 @@ function timeAvailability() {
                     weekName="Tuesday"
                     name="TuesdayName"
                     formik={formik}
-
                   />
                   <FormikControl
                     control="timeAvailabilityCard"
                     weekName="Wednesday"
                     name="WednesdayName"
                     formik={formik}
-
                   />
                   <FormikControl
                     control="timeAvailabilityCard"
                     weekName="Thursday"
                     name="ThursdayName"
                     formik={formik}
-
                   />
                   <FormikControl
                     control="timeAvailabilityCard"
                     weekName="Friday"
                     name="FridayName"
                     formik={formik}
-
                   />
                   <FormikControl
                     control="timeAvailabilityCard"
                     weekName="Saturday"
                     name="SaturdayName"
                     formik={formik}
-
-                    />
+                  />
                 </div>
               </div>
             </Form>

@@ -162,7 +162,7 @@ function Video() {
 
             <div className="font-normal capitalize">
               <p className="my-5 text-sm font-medium ">Technical</p>
-              <div className="grid grid-cols-10 text-sm gap-y-2.5 text-[#838383]">
+              <div className="grid grid-cols-10 gap-y-2.5 text-sm text-[#838383]">
                 <FiCheckCircle className="b-colo" />
                 <div className="col-span-9">Record in horizontal mode</div>
 
@@ -222,7 +222,7 @@ function Video() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-6 col-span-12 flex gap-x-10 my-10">
+          <div className="col-span-12 my-10 flex gap-x-10 md:col-span-6">
             <div>
               <button className="  w-auto rounded-lg border border-[#FC4D6D] bg-white px-3 py-1 text-lg font-medium text-[#FC4D6D] md:col-span-2 md:w-full">
                 Skip For Now

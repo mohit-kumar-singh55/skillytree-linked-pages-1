@@ -6,7 +6,17 @@ import { useClickOutside } from 'react-click-outside-hook'
 import { RiCloseCircleLine } from 'react-icons/ri'
 import { getLocalStorage, setLocalStorage, signout } from '../utils/cookies'
 import { getCookie } from 'cookies-next'
-import { ActiveHomeIcon, ActiveProfileIcon, HomeIcon, LoginIcon, MessageIcon, ProfileIcon, RevenueIcon, SessionIcon, SettingIcon } from "../icons";
+import {
+  ActiveHomeIcon,
+  ActiveProfileIcon,
+  HomeIcon,
+  LoginIcon,
+  MessageIcon,
+  ProfileIcon,
+  RevenueIcon,
+  SessionIcon,
+  SettingIcon,
+} from '../icons'
 import { useRouter } from 'next/router'
 import { SideBarLinks } from './SideBar'
 
@@ -17,17 +27,61 @@ function Navbar() {
   let [showSuggetions, setShowSuggetions] = useState(false)
   let [showSearchOnLg, setShowSearchOnLg] = useState(false)
   const { route } = useRouter()
-  const router = useRouter();
+  const router = useRouter()
   const sideLinks = [
-    { name: 'Home', link: '/tutorDashboard/about', active: router.pathname === '/tutorDashboard/about', icons: <HomeIcon />, activeIcons: <ActiveHomeIcon /> },
-    { name: 'My Profile', link: '/tutorDashboard/myprofile/basicDetails', active: router.pathname?.split('/').includes('myprofile'), icons: <ProfileIcon />, activeIcons: <ActiveProfileIcon /> },
-    { name: 'My Reviews', link: '/tutorDashboard/myreviews', active: router.pathname === '/tutorDashboard/myreviews', icons: <ProfileIcon />, activeIcons: <ActiveProfileIcon /> },
-    { name: 'Messages', link: '/tutorDashboard/messages', active: router.pathname === '/tutorDashboard/messages', icons: <MessageIcon />, activeIcons: <ActiveProfileIcon /> },
-    { name: 'My Sessions', link: '/tutorDashboard/sessions', active: router.pathname === '/tutorDashboard/sessions', icons: <SessionIcon />, activeIcons: <ActiveProfileIcon /> },
-    { name: 'My Revenue', link: '/tutorDashboard/revenue', active: router.pathname === '/tutorDashboard/revenue', icons: <RevenueIcon />, activeIcons: <ActiveProfileIcon /> },
-    { name: 'Settings', link: '/tutorDashboard/settings', active: router.pathname === '/tutorDashboard/settings', icons: <SettingIcon />, activeIcons: <ActiveProfileIcon /> },
+    {
+      name: 'Home',
+      link: '/tutorDashboard/about',
+      active: router.pathname === '/tutorDashboard/about',
+      icons: <HomeIcon />,
+      activeIcons: <ActiveHomeIcon />,
+    },
+    {
+      name: 'My Profile',
+      link: '/tutorDashboard/myprofile/basicDetails',
+      active: router.pathname?.split('/').includes('myprofile'),
+      icons: <ProfileIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
+    {
+      name: 'My Reviews',
+      link: '/tutorDashboard/myreviews',
+      active: router.pathname === '/tutorDashboard/myreviews',
+      icons: <ProfileIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
+    {
+      name: 'Messages',
+      link: '/tutorDashboard/messages',
+      active: router.pathname === '/tutorDashboard/messages',
+      icons: <MessageIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
+    {
+      name: 'My Sessions',
+      link: '/tutorDashboard/sessions',
+      active: router.pathname === '/tutorDashboard/sessions',
+      icons: <SessionIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
+    {
+      name: 'My Revenue',
+      link: '/tutorDashboard/revenue',
+      active: router.pathname === '/tutorDashboard/revenue',
+      icons: <RevenueIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
+    {
+      name: 'Settings',
+      link: '/tutorDashboard/settings',
+      active: router.pathname === '/tutorDashboard/settings',
+      icons: <SettingIcon />,
+      activeIcons: <ActiveProfileIcon />,
+    },
   ]
-  const [onDashboard, setOnDashboard] = useState(route.split('/')[1] === 'tutorDashboard')
+  const [onDashboard, setOnDashboard] = useState(
+    route.split('/')[1] === 'tutorDashboard'
+  )
   useEffect(() => {
     setOnDashboard(route.split('/')[1] === 'tutorDashboard')
   }, [route])
@@ -37,9 +91,9 @@ function Navbar() {
   }
 
   useEffect(() => {
-    const user = getLocalStorage('user');
+    const user = getLocalStorage('user')
     set_user_data(user)
-  }, []);
+  }, [])
 
   // console.log(search, menu)
   const pageLinksHoverBorder = `relative hover:text-black  md:after:h-1 md:after:mt-[-1rem] md:after:bg-[#FC4D6D] after:rounded-full hover:after:absolute after:left-0 md:after:top-11  ease-in-out after:duration-800 after:w-[2rem] `
@@ -61,8 +115,7 @@ function Navbar() {
   const logout = () => {
     signout(() => {
       window.location = '/tutorDashboard'
-    });
-
+    })
   }
   return (
     <>
@@ -70,15 +123,14 @@ function Navbar() {
       <div className=" sticky  top-0  z-30  flex h-[79px]  justify-center    bg-white  shadow-md    ">
         <div className=" relative mx-auto  flex  w-[90rem] items-center justify-between   py-4 px-6  md:px-12   lg:px-20    ">
           {/* <div className=""> */}
-          {
-            !onDashboard &&
+          {!onDashboard && (
             <Menu
               height={19}
               width={30}
               menuCss={'lg:hidden mr-2'}
               onClick={toggleMenu}
             />
-          }
+          )}
           {/* </div> */}
           <MenuLink onDashboard={onDashboard} />
           <div className=" flex gap-12      bg-white md:justify-between">
@@ -87,8 +139,9 @@ function Navbar() {
             {/* </div> */}
             {/* <Logo height="34" width="134" /> */}
             <div
-              className={`mx-auto hidden  items-center    justify-center gap-2  ${showSearchOnLg ? 'lg:flex ' : 'hidden'
-                }`}
+              className={`mx-auto hidden  items-center    justify-center gap-2  ${
+                showSearchOnLg ? 'lg:flex ' : 'hidden'
+              }`}
             >
               <NavSearchBox />
               {/* <SearchBox searchCss={'bg-red-400 '} /> */}
@@ -99,51 +152,49 @@ function Navbar() {
                 <Menu />
               </span>
             </div>
-
           </div>
           <LargeScreenMenuLinks />
           <div className=" flex  items-center gap-12">
-            {
-              getCookie("token")
-                ?
-                <>
-                  {
-                    !onDashboard &&
-                    <>
-                      <a
-                        onClick={(e) => { e.preventDefault(); logout() }}
-                        className={`whitespace-nowrap  text-[18px]   font-[600] `}
-                      >
-                        Logout
-                      </a>
-                      <GradientBtn
-                        urlLink={'/tutorDashboard'}
-                        btnName="Dashboard"
-                        btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-3  "
-                      />
-                    </>
-                  }
-                </>
-                :
-                <>
-                  <Login />
-                  <GradientBtn
-                    urlLink={'/auth/signup'}
-                    btnName="Join as Tutor"
-                    btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-2 hidden lg:flex "
-                  />
-                </>
-            }
+            {getCookie('token') ? (
+              <>
+                {!onDashboard && (
+                  <>
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault()
+                        logout()
+                      }}
+                      className={`whitespace-nowrap  text-[18px]   font-[600] `}
+                    >
+                      Logout
+                    </a>
+                    <GradientBtn
+                      urlLink={'/tutorDashboard'}
+                      btnName="Dashboard"
+                      btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-3  "
+                    />
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <Login />
+                <GradientBtn
+                  urlLink={'/auth/signup'}
+                  btnName="Join as Tutor"
+                  btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-2 hidden lg:flex "
+                />
+              </>
+            )}
           </div>
-          {
-            onDashboard &&
+          {onDashboard && (
             <Menu
               height={19}
               width={30}
               menuCss={'lg:hidden mr-2'}
               onClick={toggleMenu}
             />
-          }
+          )}
         </div>
         <MainSearch />
       </div>
@@ -173,12 +224,14 @@ function Navbar() {
                 width={18}
               />
             </div>
-            <Link href={links?.link || "/"}>
+            <Link href={links?.link || '/'}>
               <a
                 key={index}
-                className={` ${links.name == 'home' ? 'text-black after:absolute' : ''
-                  }   font-monts text-base font-semibold  ${links.name ? pageLinksHoverBorder : ''
-                  }  ${links.name === 'search' ? 'hidden' : ''}`}
+                className={` ${
+                  links.name == 'home' ? 'text-black after:absolute' : ''
+                }   font-monts text-base font-semibold  ${
+                  links.name ? pageLinksHoverBorder : ''
+                }  ${links.name === 'search' ? 'hidden' : ''}`}
               >
                 {links.name}
               </a>
@@ -192,8 +245,9 @@ function Navbar() {
     return (
       <div
         onClick={onClick}
-        className={` hover:bg-gray-200  ${menu ? 'bg-gray-200' : ''
-          } relative flex items-center rounded-2xl ${menuCss}  cursor-pointer   p-2`}
+        className={` hover:bg-gray-200  ${
+          menu ? 'bg-gray-200' : ''
+        } relative flex items-center rounded-2xl ${menuCss}  cursor-pointer   p-2`}
       >
         <Image
           src="/Images/Navbar/svg/menu.svg"
@@ -211,13 +265,14 @@ function Navbar() {
 
     return (
       <div
-        className={`  ${search ? 'flex' : 'hidden'
-          }     search-transition absolute   inset-x-0 top-[8rem] !z-50  mx-6 flex justify-center md:mx-auto md:hidden   `}
+        className={`  ${
+          search ? 'flex' : 'hidden'
+        }     search-transition absolute   inset-x-0 top-[8rem] !z-50  mx-6 flex justify-center md:mx-auto md:hidden   `}
       >
         <div
           ref={suggetions}
           className=" flex   flex-col items-center  rounded-xl bg-white shadow-md "
-        // onClick={}
+          // onClick={}
         >
           <div className="   mx-4 mt-4  flex  h-10 items-center justify-center gap-3  rounded-full pb-4">
             <SearchBox
@@ -227,8 +282,9 @@ function Navbar() {
             />
           </div>
           <div
-            className={`${showSuggetions && !hasClickedOutsideSearch ? 'flex' : 'hidden'
-              }     z-50 flex   w-[calc(100%-10%)] flex-col items-center  gap-4  pb-4 `}
+            className={`${
+              showSuggetions && !hasClickedOutsideSearch ? 'flex' : 'hidden'
+            }     z-50 flex   w-[calc(100%-10%)] flex-col items-center  gap-4  pb-4 `}
           >
             {Array.from(Array(5), (_, index) => index + 1).map((index, arr) => (
               <div key={index} className=" flex flex-col items-center ">
@@ -247,8 +303,9 @@ function Navbar() {
                   </Link>
                 </div>
                 <div
-                  className={`mx-8 h-[2px] w-full bg-gray-200  ${arr.length === arr.length ? 'hidden' : ''
-                    }`}
+                  className={`mx-8 h-[2px] w-full bg-gray-200  ${
+                    arr.length === arr.length ? 'hidden' : ''
+                  }`}
                 />
               </div>
             ))}
@@ -272,8 +329,11 @@ function Navbar() {
     return (
       <div
         ref={ref}
-        className={`  ${css} menu-transition z-50    shadow-md   ${menu && !hasClickedOutside ? 'flex' : 'hidden'
-          } items-center-center    absolute top-[5rem] ${onDashboard ? 'right-0' : 'left-0'} w-52 flex-col  gap-4 rounded-br-2xl bg-white font-monts text-sm   font-semibold capitalize  text-gray-400 `}
+        className={`  ${css} menu-transition z-50    shadow-md   ${
+          menu && !hasClickedOutside ? 'flex' : 'hidden'
+        } items-center-center    absolute top-[5rem] ${
+          onDashboard ? 'right-0' : 'left-0'
+        } w-52 flex-col  gap-4 rounded-br-2xl bg-white font-monts text-sm   font-semibold capitalize  text-gray-400 `}
       >
         <SideBarLinks links={sideLinks} hideIcon={true} />
         <NavLinks onDashboard={onDashboard} />
@@ -288,21 +348,24 @@ function Navbar() {
           <div key={index} className=" -mt-4">
             <Link href={links?.link || '/'}>
               <a
-                className={`${links.icon === 'searchIcon' ? 'hidden' : ''
-                  }   ml-8  mb-4 flex pt-4 transition delay-100   ease-in-out hover:text-gray-500  ${links.css ? links.css : ''
-                  } ${links.css ? links.css : ''}`}
+                className={`${
+                  links.icon === 'searchIcon' ? 'hidden' : ''
+                }   ml-8  mb-4 flex pt-4 transition delay-100   ease-in-out hover:text-gray-500  ${
+                  links.css ? links.css : ''
+                } ${links.css ? links.css : ''}`}
                 onClick={
                   links.name === 'search'
                     ? () => {
-                      setSearch(true)
-                      setMenu(false)
-                    }
+                        setSearch(true)
+                        setMenu(false)
+                      }
                     : ''
                 }
               >
                 <div
-                  className={`mr-2 mt-[2px] ${links.search ? 'block' : 'hidden'
-                    }`}
+                  className={`mr-2 mt-[2px] ${
+                    links.search ? 'block' : 'hidden'
+                  }`}
                 >
                   <Image
                     priority
@@ -312,39 +375,38 @@ function Navbar() {
                   />
                 </div>
                 <span
-                  className={`${links.name === 'home'
-                    ? 'hover:text-pink-500 cursor-pointer text-[#FC4D6D]'
-                    : ''
-                    }`}
+                  className={`${
+                    links.name === 'home'
+                      ? 'hover:text-pink-500 cursor-pointer text-[#FC4D6D]'
+                      : ''
+                  }`}
                 >
                   {links.name}
                 </span>
               </a>
             </Link>
             <div
-              className={`mx-6 h-[1px] w-40 rounded-full bg-gray-200 md:${links.name == 'login' ? 'hidden' : 'md:flex'
-                } ${links.icon == 'searchIcon' ? 'hidden ' : ''} `}
+              className={`mx-6 h-[1px] w-40 rounded-full bg-gray-200 md:${
+                links.name == 'login' ? 'hidden' : 'md:flex'
+              } ${links.icon == 'searchIcon' ? 'hidden ' : ''} `}
             />
           </div>
         ))}
-        {
-          getCookie("token")
-            ?
-            onDashboard ?
-              null
-              :
-              <GradientBtn
-                urlLink={'/tutorDashboard'}
-                btnName="Dashboard"
-                btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-3  "
-              />
-            :
+        {getCookie('token') ? (
+          onDashboard ? null : (
             <GradientBtn
-              urlLink={'/auth/signup'}
-              btnName="Join as Tutor"
-              btnCss="text-sm md:text-2xl md:px-6  !mx-5 mb-4 !px-4 !py-2  "
+              urlLink={'/tutorDashboard'}
+              btnName="Dashboard"
+              btnCss="text-sm   md:text-lg md:px-6  !mx-0 !px-6 !py-3  "
             />
-        }
+          )
+        ) : (
+          <GradientBtn
+            urlLink={'/auth/signup'}
+            btnName="Join as Tutor"
+            btnCss="text-sm md:text-2xl md:px-6  !mx-5 mb-4 !px-4 !py-2  "
+          />
+        )}
       </>
     )
   }
@@ -354,7 +416,7 @@ function Navbar() {
       <>
         <Link href={'/auth/login'}>
           <a
-            className={`whitespace-nowrap  text-[18px] flex items-center justify-center  font-[600] ${loginCss}`}
+            className={`flex  items-center justify-center whitespace-nowrap text-[18px]  font-[600] ${loginCss}`}
           >
             <LoginIcon className="mr-1" />
             Log In

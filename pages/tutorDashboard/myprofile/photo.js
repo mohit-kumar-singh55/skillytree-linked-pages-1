@@ -75,10 +75,9 @@ function ProfilePhoto() {
             Tutor Who Look Friendly And Professional Get The Most Students
           </p>
         </div>
-        <div className="grid grid-cols-12 px-5 text-[#545454]  xl:px-20 lg: gap-x-2">
+        <div className="lg: grid grid-cols-12 gap-x-2  px-5 text-[#545454] xl:px-20">
           <div className="col-span-12 space-y-8 md:col-span-6">
             <div className="flex gap-2.5 ">
-             
               <Dropzone
                 className="hidden"
                 onDrop={handleDrop}
@@ -151,7 +150,7 @@ function ProfilePhoto() {
             </div>
 
             <div>
-              <div className=" grid grid-cols-12 gap-y-4  text-[#838383]  capitalize">
+              <div className=" grid grid-cols-12 gap-y-4  capitalize  text-[#838383]">
                 <FiCheckCircle className="b-colo indivne mr-2" />
                 <div className=" col-span-11 ">
                   smile and look at the camera
@@ -184,7 +183,7 @@ function ProfilePhoto() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-6 col-span-12 flex gap-x-10 my-10">
+          <div className="col-span-12 my-10 flex gap-x-10 md:col-span-6">
             <div>
               <button className="  w-auto rounded-lg border border-[#FC4D6D] bg-white px-3 py-1 text-lg font-medium text-[#FC4D6D] md:col-span-2 md:w-full">
                 Skip For Now

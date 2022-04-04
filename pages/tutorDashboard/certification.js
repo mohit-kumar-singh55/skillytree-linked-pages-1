@@ -44,8 +44,8 @@ function Certification() {
         initialValues={
           user_data
             ? {
-              teaching_certificates: user_data.teaching_certificates
-            }
+                teaching_certificates: user_data.teaching_certificates,
+              }
             : {}
         }
         onSubmit={async (values) => {
@@ -58,30 +58,32 @@ function Certification() {
               name={`teaching_certificates`}
               render={(arrayHelpers) => (
                 <div>
-                  {
-                    values?.teaching_certificates && values?.teaching_certificates.length > 0
-                      ?
-                      (
-                        values?.teaching_certificates.map(function (certD, index) {
-                          return (
-                            <div>
-                              <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
-                                <Subject index={index} certD={certD} />
-                                <Certificate index={index} certD={certD} />
-                                <Description index={index} certD={certD} />
-                                <IssuedBy index={index} certD={certD} />
-                                <YearOfStudy index={index} certD={certD} />
-                                {/* <UploadPhoto /> */}
-                              </main>
-                              <hr />
-                            </div>
-                          )
-                        })
-                      )
-                      :
-                      null
-                  }
-                  <button type="button" className='flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16' onClick={() => arrayHelpers.push('')}>
+                  {values?.teaching_certificates &&
+                  values?.teaching_certificates.length > 0
+                    ? values?.teaching_certificates.map(function (
+                        certD,
+                        index
+                      ) {
+                        return (
+                          <div>
+                            <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
+                              <Subject index={index} certD={certD} />
+                              <Certificate index={index} certD={certD} />
+                              <Description index={index} certD={certD} />
+                              <IssuedBy index={index} certD={certD} />
+                              <YearOfStudy index={index} certD={certD} />
+                              {/* <UploadPhoto /> */}
+                            </main>
+                            <hr />
+                          </div>
+                        )
+                      })
+                    : null}
+                  <button
+                    type="button"
+                    className="flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16"
+                    onClick={() => arrayHelpers.push('')}
+                  >
                     {/* show this when user has removed all friends from the list */}
                     <a className="-mt-2 text-sm font-medium capitalize text-[#42ADE2]">
                       add another certificate
@@ -93,8 +95,8 @@ function Certification() {
             <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
               {/* <CheckBox /> */}
               <NextAndBackBtn
-                nextButtonType={"submit"}
-                onNextClick={() => console.log("submit")}
+                nextButtonType={'submit'}
+                onNextClick={() => console.log('submit')}
                 onBackClick={() => Router.push('photo')}
               />
             </main>
@@ -134,7 +136,8 @@ const Certificate = ({ index }) => (
     <Field
       id={`teaching_certificates.${index}.certificate_title`}
       name={`teaching_certificates.${index}.certificate_title`}
-      className="tutor-dashboard-input-style " type="text"
+      className="tutor-dashboard-input-style "
+      type="text"
     />
   </div>
 )
@@ -146,7 +149,8 @@ const Description = ({ index }) => (
     <Field
       id={`teaching_certificates.${index}.description`}
       name={`teaching_certificates.${index}.description`}
-      className="tutor-dashboard-input-style " type="text"
+      className="tutor-dashboard-input-style "
+      type="text"
     />
   </div>
 )
@@ -158,7 +162,8 @@ const IssuedBy = ({ index }) => (
     <Field
       id={`teaching_certificates.${index}.issued_by`}
       name={`teaching_certificates.${index}.issued_by`}
-      className="tutor-dashboard-input-style " type="text"
+      className="tutor-dashboard-input-style "
+      type="text"
     />
   </div>
 )

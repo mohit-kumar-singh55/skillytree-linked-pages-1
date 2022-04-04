@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { FiMessageCircle } from 'react-icons/fi'
-import { SUBJECTS } from '../../utils/constants';
-import { getLocalStorage } from '../../utils/cookies';
+import { SUBJECTS } from '../../utils/constants'
+import { getLocalStorage } from '../../utils/cookies'
 
 function TutorHeroPageMobile() {
   const [user_data, set_user_data] = useState(null)
@@ -18,18 +18,14 @@ function TutorHeroPageMobile() {
   }
   return (
     <div className="relative flex h-64 items-center justify-center  md:hidden ">
-      {
-        user_data
-          ?
-          <>
-            <BackgroundFullImg user_data={user_data} />
-            <div className="tutor-gradient -z-10" />
-            <AndrewSmith user_data={user_data} />
-            <ProfileImgAndQualifications user_data={user_data} />
-          </>
-          :
-          null
-      }
+      {user_data ? (
+        <>
+          <BackgroundFullImg user_data={user_data} />
+          <div className="tutor-gradient -z-10" />
+          <AndrewSmith user_data={user_data} />
+          <ProfileImgAndQualifications user_data={user_data} />
+        </>
+      ) : null}
     </div>
   )
 }
@@ -50,7 +46,9 @@ function BackgroundFullImg({ user_data }) {
 function AndrewSmith({ user_data }) {
   return (
     <div className="-mt-20 space-y-4 text-center font-bold capitalize text-white ">
-      <div className=" -ml-8 text-sm tracking-[0.175em]">{user_data.headline}</div>
+      <div className=" -ml-8 text-sm tracking-[0.175em]">
+        {user_data.headline}
+      </div>
       <h1 className=" flex gap-[17px] text-3xl">
         <span> {user_data.name}</span>
         <div className="inline-block h-[21px] w-[21px]">
@@ -97,17 +95,28 @@ function TutorDescription({ user_data }) {
             width={16}
           />
         </div>
-        <span>Teaches {user_data?.subject_taught_id?.map(function (elem) {
-          return SUBJECTS[elem];
-        }).join(", ")} language</span>
+        <span>
+          Teaches{' '}
+          {user_data?.subject_taught_id
+            ?.map(function (elem) {
+              return SUBJECTS[elem]
+            })
+            .join(', ')}{' '}
+          language
+        </span>
       </div>
       <div className="flex gap-[10px]">
         <div className="   ml-[-4px]  mr-[5px] flex justify-center">
           <FiMessageCircle className="text-sm" />
         </div>
-        <span>Speaks {user_data.language_spoken.map(function (elem) {
-          return elem.language;
-        }).join(", ")} </span>
+        <span>
+          Speaks{' '}
+          {user_data.language_spoken
+            .map(function (elem) {
+              return elem.language
+            })
+            .join(', ')}{' '}
+        </span>
       </div>
       <div className="flex gap-[10px]  ">
         <div className="ml-[-2px] mr-[4px] flex justify-center">

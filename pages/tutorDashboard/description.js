@@ -37,11 +37,11 @@ function Description() {
         initialValues={
           user_data
             ? {
-              headline: user_data.headline,
-              introduction: user_data.introduction,
-              teaching_experience: user_data.teaching_experience,
-              motivation_line: user_data.motivation_line,
-            }
+                headline: user_data.headline,
+                introduction: user_data.introduction,
+                teaching_experience: user_data.teaching_experience,
+                motivation_line: user_data.motivation_line,
+              }
             : {}
         }
         onSubmit={async (values) => {
@@ -79,7 +79,7 @@ function Description() {
             </div>
             <NextAndBackBtn
               nextButtonType="submit"
-              onNextClick={() => { }}
+              onNextClick={() => {}}
               onBackClick={() => Router.push('education')}
             />
           </main>
@@ -120,7 +120,7 @@ const IntroductionAndInterest = () => (
       name="introduction"
       rows="7"
       required
-    // placeholder="hello, my name is ...and i’m from... "
+      // placeholder="hello, my name is ...and i’m from... "
     />
   </div>
 )
@@ -137,7 +137,7 @@ const ExperienceCertificationMethodology = () => (
       name="teaching_experience"
       rows="7"
       required
-    // placeholder="hello, my name is ...and i’m from... "
+      // placeholder="hello, my name is ...and i’m from... "
     />
   </div>
 )
@@ -153,7 +153,7 @@ const Trial = () => (
       name="motivation_line"
       rows="7"
       required
-    // placeholder="hello, my name is ...and i’m from... "
+      // placeholder="hello, my name is ...and i’m from... "
     />
   </div>
 )

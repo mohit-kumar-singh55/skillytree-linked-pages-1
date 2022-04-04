@@ -18,7 +18,7 @@ const Home = () => {
   // common css
   const mainContainer =
     ' relative px-8 flex   my-auto  w-full max-w-[calc(1440px-80px)] md:grid  grid-cols-2 flex-col items-center justify-between self-stretch overflow-hidden   h-full  '
- 
+
   return (
     <>
       <Head>

@@ -24,12 +24,10 @@ const Login = (props) => {
     if (login_response.success) {
       switch (login_response.data.role_name) {
         case ROLE_NAME.TUTOR:
-          authenticate(
-            login_response.data,
-            () =>
-              // Router.push('/tutorDashboard')
-              // window.location.href="/tutorDashboard"
-              setTimeout((window.location = '/tutorDashboard'), 2000)
+          authenticate(login_response.data, () =>
+            // Router.push('/tutorDashboard')
+            // window.location.href="/tutorDashboard"
+            setTimeout((window.location = '/tutorDashboard'), 2000)
           )
           break
         default:
@@ -92,7 +90,10 @@ const Login = (props) => {
           </div>
         </div>
 
-        <div className="relative min-h-[70vh] sm:basis-[50%]" style={{zIndex: 1000}}>
+        <div
+          className="relative min-h-[70vh] sm:basis-[50%]"
+          style={{ zIndex: 1000 }}
+        >
           <div
             className="absolute
             flex

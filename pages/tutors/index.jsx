@@ -1,4 +1,4 @@
-import TutorsList from "../../components/TutorsList";
+import TutorsList from '../../components/TutorsList'
 const Tutors = () => {
   return (
     <>
@@ -7,4 +7,4 @@ const Tutors = () => {
   )
 }
 
-export default Tutors;
+export default Tutors

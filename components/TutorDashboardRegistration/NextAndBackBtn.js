@@ -1,6 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-function NextAndBackBtn({ onNextClick, onBackClick, nextButtonType, is_final }) {
+function NextAndBackBtn({
+  onNextClick,
+  onBackClick,
+  nextButtonType,
+  is_final,
+}) {
   return (
     <>
       <div className="flex flex-col gap-4  md:flex-row">
@@ -9,9 +14,7 @@ function NextAndBackBtn({ onNextClick, onBackClick, nextButtonType, is_final }) 
             onClick={() => onNextClick()}
             className="tutor-dashboard-btn   md:flex-line md:order-2"
           >
-            {
-              is_final ? "Publish" : "Next"
-            }
+            {is_final ? 'Publish' : 'Next'}
           </a>
         </button>
         <button>

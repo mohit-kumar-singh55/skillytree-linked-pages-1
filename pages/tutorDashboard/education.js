@@ -27,7 +27,6 @@ function Education() {
     }
   }
 
-
   return (
     <div>
       <div className="px-5 pt-3 pb-4 font-poppins text-2xl font-semibold capitalize text-[#5E5252] md:px-16">
@@ -46,8 +45,8 @@ function Education() {
         initialValues={
           user_data
             ? {
-              education_certificates: user_data.education_certificates
-            }
+                education_certificates: user_data.education_certificates,
+              }
             : {}
         }
         onSubmit={async (values) => {
@@ -60,30 +59,32 @@ function Education() {
               name={`education_certificates`}
               render={(arrayHelpers) => (
                 <div>
-                  {
-                    values?.education_certificates && values?.education_certificates.length > 0
-                      ?
-                      (
-                        values?.education_certificates.map(function (certD, index) {
-                          return (
-                            <div>
-                              <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
-                                <University index={index} certD={certD} />
-                                <Degree index={index} certD={certD} />
-                                <DegreeType index={index} certD={certD} />
-                                <Specialization index={index} certD={certD} />
-                                <YearOfStudy index={index} certD={certD} />
-                              </main>
-                              {/* <UploadPhoto /> */}
-                              <hr />
-                            </div>
-                          )
-                        })
-                      )
-                      :
-                      null
-                  }
-                  <button type="button" className='flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16' onClick={() => arrayHelpers.push('')}>
+                  {values?.education_certificates &&
+                  values?.education_certificates.length > 0
+                    ? values?.education_certificates.map(function (
+                        certD,
+                        index
+                      ) {
+                        return (
+                          <div>
+                            <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
+                              <University index={index} certD={certD} />
+                              <Degree index={index} certD={certD} />
+                              <DegreeType index={index} certD={certD} />
+                              <Specialization index={index} certD={certD} />
+                              <YearOfStudy index={index} certD={certD} />
+                            </main>
+                            {/* <UploadPhoto /> */}
+                            <hr />
+                          </div>
+                        )
+                      })
+                    : null}
+                  <button
+                    type="button"
+                    className="flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16"
+                    onClick={() => arrayHelpers.push('')}
+                  >
                     {/* show this when user has removed all friends from the list */}
                     <a className="-mt-2 text-sm font-medium capitalize text-[#42ADE2]">
                       add another education
@@ -95,16 +96,14 @@ function Education() {
             <main className="mb-8 flex flex-col gap-8 p-5   font-roboto text-[#545454] md:px-16">
               {/* <CheckBox /> */}
               <NextAndBackBtn
-                nextButtonType={"submit"}
-                onNextClick={() => console.log("submit")}
+                nextButtonType={'submit'}
+                onNextClick={() => console.log('submit')}
                 onBackClick={() => Router.push('certification')}
               />
             </main>
           </Form>
         )}
       />
-
-
     </div>
   )
 }
@@ -135,7 +134,8 @@ const Degree = ({ index, certD }) => (
       name={`education_certificates.${index}.degree`}
       value={certD.degree}
       className="tutor-dashboard-input-style "
-      type="text" />
+      type="text"
+    />
   </div>
 )
 const DegreeType = ({ index, certD }) => (
@@ -148,7 +148,8 @@ const DegreeType = ({ index, certD }) => (
       name={`education_certificates.${index}.degree_type`}
       value={certD.degree_type}
       className="tutor-dashboard-input-style "
-      type="text" />
+      type="text"
+    />
   </div>
 )
 const Specialization = ({ index, certD }) => (
@@ -161,7 +162,8 @@ const Specialization = ({ index, certD }) => (
       name={`education_certificates.${index}.specialization`}
       value={certD.specialization}
       className="tutor-dashboard-input-style "
-      type="text" />
+      type="text"
+    />
   </div>
 )
 const YearOfStudy = ({ index, certD }) => (

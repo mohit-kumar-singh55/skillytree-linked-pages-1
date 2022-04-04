@@ -22,5 +22,4 @@ function TutorProfile() {
   )
 }
 
-
 export default TutorProfile

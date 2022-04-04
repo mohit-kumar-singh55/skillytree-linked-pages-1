@@ -1,6 +1,6 @@
-import { SUBJECTS } from "../../utils/constants";
-import { getLocalStorage } from "../../utils/cookies";
-import { useEffect, useState } from "react";
+import { SUBJECTS } from '../../utils/constants'
+import { getLocalStorage } from '../../utils/cookies'
+import { useEffect, useState } from 'react'
 
 function Subject() {
   const [user_data, set_user_data] = useState()
@@ -16,16 +16,12 @@ function Subject() {
 
   return (
     <div className="mx-auto mb-8 mt-4 font-poppins">
-      {
-        user_data
-          ?
-          <>
-            <Mobile user_data={user_data} />
-            <Desktop user_data={user_data} />
-          </>
-          :
-          null
-      }
+      {user_data ? (
+        <>
+          <Mobile user_data={user_data} />
+          <Desktop user_data={user_data} />
+        </>
+      ) : null}
     </div>
   )
 }
@@ -37,13 +33,9 @@ function Mobile({ user_data }) {
     <div className="mx-auto mb-12 max-w-sm p-4  font-poppins sm:mx-auto md:hidden">
       <Title />
       <select className="mb-6 w-full max-w-[373px] rounded-md border-2 bg-white py-2 px-4 text-sm text-gray-400 outline-none ">
-        {
-          user_data?.subject_taught_id.map(function (dd) {
-            return (
-              <option>{SUBJECTS[dd]}</option>
-            )
-          })
-        }
+        {user_data?.subject_taught_id.map(function (dd) {
+          return <option>{SUBJECTS[dd]}</option>
+        })}
       </select>
 
       <section className=" capitalize">
@@ -63,13 +55,17 @@ function Desktop({ user_data }) {
       </div>
       <section className="flex justify-center  capitalize">
         <div className=" flex flex-col gap-16  pr-14 pt-3 text-2xl font-medium">
-          {
-            user_data.subject_taught_id.map(function (dd, key) {
-              return (
-                <h1 className={`cursor-pointer ${key === 0 ? 'text-[#FC4D6D]' : null}`}>{SUBJECTS[dd]}</h1>
-              )
-            })
-          }
+          {user_data.subject_taught_id.map(function (dd, key) {
+            return (
+              <h1
+                className={`cursor-pointer ${
+                  key === 0 ? 'text-[#FC4D6D]' : null
+                }`}
+              >
+                {SUBJECTS[dd]}
+              </h1>
+            )
+          })}
         </div>
 
         <div className="flex flex-col ">
