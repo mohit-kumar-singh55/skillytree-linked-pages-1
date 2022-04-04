@@ -13,7 +13,7 @@ import {
   isPast,
 } from 'date-fns'
 import CrossIcon from '../../../Icons/CrossIcon'
-import PopUpButton from '../../Utils/PopUpButton'
+import PopUpButton from '../../Utils/Buttons/PopUpButton'
 import axios from 'axios'
 import Router from 'next/router'
 const CalenderPopUp = ({ setOpenPopUp, setTotalSelectedTimes, link }) => {
