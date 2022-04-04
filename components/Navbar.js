@@ -67,7 +67,7 @@ function Navbar() {
   return (
     <>
       {/*    fixed*/}
-      <div className=" sticky-nav relative  z-30  flex h-[79px]  justify-center    bg-white  shadow-md    ">
+      <div className=" sticky  top-0  z-30  flex h-[79px]  justify-center    bg-white  shadow-md    ">
         <div className=" relative mx-auto  flex  w-[90rem] items-center justify-between   py-4 px-6  md:px-12   lg:px-20    ">
           {/* <div className=""> */}
           {

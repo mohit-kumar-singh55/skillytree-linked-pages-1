@@ -8,6 +8,7 @@ function CourseCart({
   tutorImg,
   countryLogo,
   tutorId,
+  setOpenPopUp
 }) {
   return (
     <div className="flex snap-center rounded-md transition-all ease-in-out">
@@ -21,7 +22,11 @@ function CourseCart({
           <Language />
           <ActiveFinishedRatingBox />
           <Description />
-          <BookTrialBtn space={'my-4'} tutorId={tutorId} />
+
+          <BookTrialBtn space={'my-4'} tutorId={tutorId} setOpenPopUp={setOpenPopUp}/>
+
+          <BookTrialBtn space={'my-4'}  />
+
         </div>
         <ViewAndChat space={'px-4'} />
       </div>
@@ -43,8 +48,9 @@ function CourseCart({
         <div className="transparent-box absolute top-0 rounded-br-3xl px-[23px] py-[10px] text-center font-poppins text-[12px] font-bold uppercase text-white ">
           {topRightTitle}
         </div>
-        <div className="absolute top-[10px] right-[18px]">
-          <div className="relative h-[18px] w-[14px]">
+
+        <div className='absolute top-[10px] right-[18px]'>
+          <div className="relative w-[14px] h-[18px] cursor-pointer">
             <Image
               src="/Images/CourseCart/Bookmark.png"
               layout="fill"
@@ -166,23 +172,40 @@ function CourseCart({
     )
   }
 
-  function BookTrialBtn({ space, tutorId }) {
+
+//   function BookTrialBtn({ space, tutorId }) {
+//     return (
+//       // TODO Replace this url with new location of Booking Page
+//       <Link href={`http://localhost:3000?tutorId=${'tutor_id'}`}>
+//         <div
+//           className={`relative z-20 flex justify-center ${space} cursor-pointer`}
+//         >
+//           <a className="inline-block w-[220px] rounded-full px-6 py-2 text-center text-[14px] font-[600] text-[#FC4D6D] shadow-lg drop-shadow-lg backdrop-blur-md transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
+//             Book Trial | $20/hr
+//           </a>
+//           <div className="-z-20">
+//             <div className="gradientCircle left-[75px] top-[-4px] h-[15px] w-[15px] " />
+//             <div className="gradientCircle -bottom-2 right-[-7px] h-[35px] w-[35px]" />
+//             <div className="gradientCircle top-[1rem] left-[-2px] h-[27px] w-[27px]" />
+//           </div>
+//         </div>
+//       </Link>
+// =======
+  function BookTrialBtn({ space, setOpenPopUp }) {
     return (
-      // TODO Replace this url with new location of Booking Page
-      <Link href={`http://localhost:3000?tutorId=${'tutor_id'}`}>
-        <div
-          className={`relative z-20 flex justify-center ${space} cursor-pointer`}
-        >
-          <a className="inline-block w-[220px] rounded-full px-6 py-2 text-center text-[14px] font-[600] text-[#FC4D6D] shadow-lg drop-shadow-lg backdrop-blur-md transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
+      <div className={`z-10 relative flex justify-center ${space} cursor-pointer`}>
+        <>
+          <button onClick={() => { setOpenPopUp && setOpenPopUp({ ...false, calendarPopUp: true }) }} className="w-[220px] text-center inline-block rounded-full backdrop-blur-md drop-shadow-lg shadow-lg px-6 py-2 text-[14px] font-[600] text-[#FC4D6D] transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
             Book Trial | $20/hr
-          </a>
+          </button>
           <div className="-z-20">
-            <div className="gradientCircle left-[75px] top-[-4px] h-[15px] w-[15px] " />
-            <div className="gradientCircle -bottom-2 right-[-7px] h-[35px] w-[35px]" />
-            <div className="gradientCircle top-[1rem] left-[-2px] h-[27px] w-[27px]" />
+            <div className="w-[15px] h-[15px] gradientCircle left-[75px] top-[-4px] " />
+            <div className="w-[35px] h-[35px] gradientCircle -bottom-2 right-[-7px]" />
+            <div className="w-[27px] h-[27px] gradientCircle top-[1rem] left-[-2px]" />
           </div>
-        </div>
-      </Link>
+        </>
+      </div>
+
     )
   }
 

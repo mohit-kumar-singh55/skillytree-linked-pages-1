@@ -20,8 +20,8 @@ function TopTutors() {
         </div>
 
         {Array.from(Array(3), (_, index) => index + 1).map((index) => (
-          <Link href={'/tutors'}>
-            <a key={index} className=" hidden lg:flex">
+          <Link href={'/tutors'} key={index} >
+            <a className=" hidden lg:flex">
               <CourseCart
                 topRightTitle={'top tutors'}
                 coverImg="/Images/CourseCart/girl-using-tablet.png"
