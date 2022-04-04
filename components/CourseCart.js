@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
 function CourseCart({
   coverImg,
@@ -7,10 +7,11 @@ function CourseCart({
   tutorName,
   tutorImg,
   countryLogo,
+  tutorId,
   setOpenPopUp
 }) {
   return (
-    <div className="flex rounded-md transition-all ease-in-out snap-center">
+    <div className="flex snap-center rounded-md transition-all ease-in-out">
       <div className="w-[350px] overflow-hidden rounded-2xl  pb-[20px] font-poppins shadow-xl ring-2 ring-[#FC4D6D] ring-opacity-10">
         <CoverSection />
         <TutorDetails
@@ -21,7 +22,11 @@ function CourseCart({
           <Language />
           <ActiveFinishedRatingBox />
           <Description />
-          <BookTrialBtn space={'my-4'} setOpenPopUp={setOpenPopUp} />
+
+          <BookTrialBtn space={'my-4'} tutorId={tutorId} setOpenPopUp={setOpenPopUp}/>
+
+          <BookTrialBtn space={'my-4'}  />
+
         </div>
         <ViewAndChat space={'px-4'} />
       </div>
@@ -30,7 +35,7 @@ function CourseCart({
 
   function CoverSection() {
     return (
-      <div className="relative  overflow-hidden rounded-t-2xl rounded-br-[30px] h-[210px]">
+      <div className="relative  h-[210px] overflow-hidden rounded-t-2xl rounded-br-[30px]">
         <Image
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/RQAAuEB4mUJ9Y0AAAAASUVORK5CYII="
@@ -43,12 +48,13 @@ function CourseCart({
         <div className="transparent-box absolute top-0 rounded-br-3xl px-[23px] py-[10px] text-center font-poppins text-[12px] font-bold uppercase text-white ">
           {topRightTitle}
         </div>
+
         <div className='absolute top-[10px] right-[18px]'>
           <div className="relative w-[14px] h-[18px] cursor-pointer">
             <Image
               src="/Images/CourseCart/Bookmark.png"
-              layout='fill'
-              objectFit='contain'
+              layout="fill"
+              objectFit="contain"
               alt="bookmark"
             />
           </div>
@@ -93,7 +99,7 @@ function CourseCart({
   function Language({ space }) {
     return (
       <div
-        className={`text-[11px] font-medium text-[#474747] ${space} w-full items-start pl-3 mb-[18px] flex flex-col gap-[12.55px]`}
+        className={`text-[11px] font-medium text-[#474747] ${space} mb-[18px] flex w-full flex-col items-start gap-[12.55px] pl-3`}
       >
         <span className="flex items-center gap-[15px]">
           <Image
@@ -119,7 +125,9 @@ function CourseCart({
 
   function ActiveFinishedRatingBox({ space }) {
     return (
-      <div className={`flex   ${space} justify-between gap-2  font-bold text-[13px] mb-2 w-full px-3`}>
+      <div
+        className={`flex   ${space} mb-2 w-full  justify-between gap-2 px-3 text-[13px] font-bold`}
+      >
         <TransparentBox title={'Active '} title2={'Students'} num="3" />
         <TransparentBox title={'Session '} title2={'finished'} num="45" />
         <TransparentBox title={'4.5'} title2={'Rating'} img={true} num="172" />
@@ -128,8 +136,8 @@ function CourseCart({
     function TransparentBox({ title, num, title2, img }) {
       return (
         <div
-          className=" transparent-box    flex flex-col items-center justify-center
-          rounded-xl px-4 text-center font-monts text-[11px] capitalize w-[100px] h-[54px]"
+          className=" transparent-box    flex h-[54px] w-[100px] flex-col
+          items-center justify-center rounded-xl px-4 text-center font-monts text-[11px] capitalize"
         >
           <div className="text-[#474747]">
             <span className="flex items-center justify-center  leading-[16px]">
@@ -153,14 +161,36 @@ function CourseCart({
 
   function Description() {
     return (
-      <div className={` px-4 font-monts font-semibold text-xs capitalize text-[#606060]   `}>
-        <span className='font-extrabold'>Brief :</span> dolor sit amet, consectetur
-        elit. Fringilla enim, at rhoncus nisl, condimentum,Fringilla enim,
+      <div
+        className={` px-4 font-monts text-xs font-semibold capitalize text-[#606060]   `}
+      >
+        <span className="font-extrabold">Brief :</span> dolor sit amet,
+        consectetur elit. Fringilla enim, at rhoncus nisl, condimentum,Fringilla
+        enim,
         <span>.....</span>
       </div>
     )
   }
 
+
+//   function BookTrialBtn({ space, tutorId }) {
+//     return (
+//       // TODO Replace this url with new location of Booking Page
+//       <Link href={`http://localhost:3000?tutorId=${'tutor_id'}`}>
+//         <div
+//           className={`relative z-20 flex justify-center ${space} cursor-pointer`}
+//         >
+//           <a className="inline-block w-[220px] rounded-full px-6 py-2 text-center text-[14px] font-[600] text-[#FC4D6D] shadow-lg drop-shadow-lg backdrop-blur-md transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
+//             Book Trial | $20/hr
+//           </a>
+//           <div className="-z-20">
+//             <div className="gradientCircle left-[75px] top-[-4px] h-[15px] w-[15px] " />
+//             <div className="gradientCircle -bottom-2 right-[-7px] h-[35px] w-[35px]" />
+//             <div className="gradientCircle top-[1rem] left-[-2px] h-[27px] w-[27px]" />
+//           </div>
+//         </div>
+//       </Link>
+// =======
   function BookTrialBtn({ space, setOpenPopUp }) {
     return (
       <div className={`z-10 relative flex justify-center ${space} cursor-pointer`}>
@@ -175,13 +205,14 @@ function CourseCart({
           </div>
         </>
       </div>
+
     )
   }
 
   function ViewAndChat({ space }) {
     return (
       <div
-        className={`${space} items-center flex justify-between font-monts font-semibold text-[12px] text-[#474747]`}
+        className={`${space} flex items-center justify-between font-monts text-[12px] font-semibold text-[#474747]`}
       >
         <Link href={'/'}>
           <a className="flex items-center">
