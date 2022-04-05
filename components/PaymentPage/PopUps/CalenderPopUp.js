@@ -12,7 +12,7 @@ import {
   isToday,
   isPast,
 } from 'date-fns'
-import CrossIcon from '../../../Icons/CrossIcon'
+import CrossIcon from '../../../icons/CrossIcon'
 import PopUpButton from '../../Utils/Buttons/PopUpButton'
 import axios from 'axios'
 import Router from 'next/router'
