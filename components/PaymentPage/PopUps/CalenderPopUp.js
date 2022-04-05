@@ -238,7 +238,7 @@ const CalenderPopUp = ({ setOpenPopUp, setTotalSelectedTimes, link }) => {
                                 )).length > 0
                                   ? `${
                                       clashedTimings.includes(id)
-                                        ? 'bg-blue-600'
+                                        ? 'bg-gray-500'
                                         : 'bg-[#FC4D6D]'
                                     } text-white`
                                   : ''

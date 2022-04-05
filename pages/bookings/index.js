@@ -1,39 +1,51 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function Bookings() {
-  const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState([])
 
   useEffect(() => {
     axios.get(`${API_URL}/booking/all`).then((response) => {
-      const bookingsList = response.data.data;
+      const bookingsList = response.data.data
       // sort bookings by start_date
       const sortedBookings = bookingsList.sort((a, b) => {
-        return parseInt(a.start_date) - parseInt(b.start_date);
-      });
-      setBookings(sortedBookings);
-    });
-  }, []);
+        return parseInt(a.start_date) - parseInt(b.start_date)
+      })
+      setBookings(sortedBookings)
+    })
+  }, [])
   return (
     <div>
       {bookings.map((booking, index) => {
         // Get current time in epoch format from timeserver
-        const currentTime = parseInt(new Date() / 1000);
-        const startTime = parseInt(booking.start_date);
-        const endTime = startTime + 3600;
+        const currentTime = parseInt(new Date() / 1000)
+        const startTime = parseInt(booking.start_date)
+        const endTime = startTime + 3600
 
-        let status, color;
+        let status, color
         if (currentTime < startTime) {
-          status = "Session has not started yet";
-          color = "bg-blue-200";
+          status = 'Session has not started yet'
+          color = 'bg-blue-200'
         } else if (currentTime > endTime) {
-          status = "Session has ended";
-          color = "bg-green-200";
+          status = 'Session has ended'
+          color = 'bg-green-200'
         } else {
-          status = "Session is active";
-          color = "bg-red-200";
+          status = 'Session is active'
+          color = 'bg-red-200'
         }
+
+        // Difference between current time and startTime
+        console.log(startTime)
+
+        const seconds = startTime - currentTime
+
+        var numdays = Math.floor((seconds % 31536000) / 86400)
+        var numhours = Math.floor(((seconds % 31536000) % 86400) / 3600)
+        var numminutes = Math.floor(
+          (((seconds % 31536000) % 86400) % 3600) / 60
+        )
+        var numseconds = (((seconds % 31536000) % 86400) % 3600) % 60
 
         return (
           <div key={index} className={`${color} mb-2`}>
@@ -45,11 +57,16 @@ export default function Bookings() {
             <div>
               end time: {endTime} {new Date(endTime * 1000).toString()}
             </div>
+            <div>{currentTime}</div>
+            <div>{startTime}</div>
 
+            <div>{`${
+              numdays > 0 ? numdays : ''
+            } ${numhours} ${numminutes} ${numseconds}`}</div>
             <br />
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
